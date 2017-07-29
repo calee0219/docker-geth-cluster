@@ -6,8 +6,6 @@ bootstrap:
   expose:
     - "30303"
     - "8545"
-    - "22"
-
 
 
 eth:

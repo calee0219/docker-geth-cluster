@@ -2,12 +2,17 @@ FROM ubuntu:16.04
 
 MAINTAINER CALee
 
-# install geth
+COPY ./genesis.json /root/genesis.json
+
 RUN apt-get update
+# install sshd
+RUN apt-get -y install openssh-server
+RUN service ssh start
+# install geth
 RUN apt-get -y install software-properties-common
 RUN add-apt-repository -y ppa:ethereum/ethereum
 RUN apt-get update
 RUN apt-get -y install ethereum
-RUN touch ~/passwd && chmod 700 ~/passwd
+RUN geth --networkid 110010 --rpc init /root/genesis.json
 
-EXPOSE 30303 8545
+EXPOSE 30303 8545 22

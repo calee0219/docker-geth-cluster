@@ -28,7 +28,7 @@ Where 1, 2, and 3 is how many node you want to create
 
 ```shell
 # enter docker
-docker -it [contaoiner name] /bin/bash
+docker exec -it [contaoiner name] /bin/bash
 # attach to geth
 geth attach
 ```
